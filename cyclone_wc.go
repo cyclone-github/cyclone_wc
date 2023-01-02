@@ -13,6 +13,7 @@ import (
 
 // version history
 // vbeta1-2023-1-2.1000; initial release
+// vbeta1-2023-1-2.1400; fixed lines / second
 
 // TODO: 
 // optimize code for faster performance
@@ -20,11 +21,11 @@ import (
 // INFO:
 // reads file from -i flag and returns word count
 // currently cyclone word count is not as fast as gnu wc, but provides an alternative that is cross compiled for Linux, Windows & Mac
-// writen by cyclone
+// written by cyclone
 
 func versionFunc() {
 	fmt.Println("Cyclone Word Count")
-    funcBase64Decode("dmJldGExLTIwMjMtMS0yLjEwMDA7IGluaXRpYWwgcmVsZWFzZQo=")
+    funcBase64Decode("dmJldGExLTIwMjMtMS0yLjE0MDAK=")
 }
 
 // help function
@@ -82,7 +83,7 @@ func main() {
 	
 	// create goroutine bool channel
 	done := make(chan bool)
-	// start hashgen goroutine
+	// start goroutine
 	wg.Add(1)
 	go func() {
 		defer wg.Done()
@@ -93,8 +94,8 @@ func main() {
 			linesCount++
 		}
 		elapsedTime := time.Since(startTime)
-		linesPerSecond := float64(linesCount) / elapsedTime.Seconds() *0.001 // convert to thousand hashes per second
-		fmt.Printf("Finished in:\t %v (%.0f lines/sec)\n", elapsedTime, linesPerSecond)
+		linesPerSecond := float64(linesCount) / elapsedTime.Seconds() *0.000001 // convert to million lines per second
+		fmt.Printf("Finished in:\t %v (%.3f million lines/sec)\n", elapsedTime, linesPerSecond)
 		fmt.Printf("Total lines:\t %d\n", linesCount)
 		done <- true
 	}()
