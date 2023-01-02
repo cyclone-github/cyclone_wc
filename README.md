@@ -11,13 +11,13 @@ Usage Examples:
 ### Linux:
 - $ ./cyclone_wc.bin -i cyclone_hk_v2.txt
 - Counting lines:  cyclone_hk_v2.txt
-- Finished in:     10.361289699s (58763 lines/sec)
+- Finished in:     7.599916052s (80.115 million lines/sec)
 - Total lines:     608864500
 
 ### Windows:
 - \> .\cyclone_wc.exe -i cyclone_hk_v2.txt
 - Counting lines:  cyclone_hk_v2.txt
-- Finished in:     8.4219081s (72295 lines/sec)
+- Finished in:     8.2322596s (73.961 million lines/sec)
 - Total lines:     608864500
 
 ### Mac:
